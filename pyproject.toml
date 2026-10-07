@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gutsy-mcp"
+version = "0.1.0"
+description = "A local gut check for coding agents: calibrated probabilities that an action is safe and intended, before rm -rf, force-push, deploy or send."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+keywords = ["mcp", "agents", "safety", "guardrails", "claude-code", "cursor", "codex", "local-llm"]
+dependencies = ["mcp>=1.2"]
+
+[project.scripts]
+gutsy-mcp = "gutsy_mcp.server:main"
+gutsy-hook = "gutsy_mcp.hook:main"
+
+[project.urls]
+Repository = "https://github.com/kouhxp/gutsy-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gutsy_mcp"]

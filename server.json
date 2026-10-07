@@ -1,0 +1,46 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kouhxp/gutsy",
+  "title": "gutsy",
+  "description": "Local gut check before risky agent actions: calibrated safe/intended probabilities, no API calls.",
+  "repository": {
+    "url": "https://github.com/kouhxp/gutsy-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "gutsy-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "GUTSY_URL",
+          "description": "URL of the local gutsy-inference server",
+          "isRequired": false,
+          "default": "http://127.0.0.1:8765"
+        },
+        {
+          "name": "GUTSY_INFERENCE_DIR",
+          "description": "Directory with models.json; if set, gutsy-mcp starts gutsy-inference itself",
+          "isRequired": false
+        },
+        {
+          "name": "GUTSY_PROCEED_MIN",
+          "description": "Minimum P(proceed) and P(intended) to recommend proceeding",
+          "isRequired": false,
+          "default": "0.85"
+        },
+        {
+          "name": "GUTSY_BLOCK_MIN",
+          "description": "Minimum P(block) to recommend blocking",
+          "isRequired": false,
+          "default": "0.50"
+        }
+      ]
+    }
+  ]
+}
